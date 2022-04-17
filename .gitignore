@@ -26,3 +26,5 @@ dist-ssr
 pyenv
 __pycache__
 pyapp/spec
+/build
+/buildCEF
