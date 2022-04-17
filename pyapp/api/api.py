@@ -18,3 +18,6 @@ class API:
 
     def getOwner(self):
         return getpass.getuser()
+
+    def getSum(self, a, b):
+        return a + b
