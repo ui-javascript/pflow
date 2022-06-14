@@ -49,7 +49,7 @@ let toolbar = [
 onMounted(() => {
   editor = new Vditor('vditor', {
     mode: 'wysiwyg',
-    height: window.innerHeight - 270,
+    height: window.innerHeight - 300,
     outline: {
       enable: true,
       position: 'right',

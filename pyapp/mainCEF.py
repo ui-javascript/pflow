@@ -36,7 +36,7 @@ def WebViewApp():
     if sys.flags.dev_mode:
         template = 'http://localhost:3000/index.html'  
     
-    window = webview.create_window(title=cfg.appName, url=template, js_api=api)    # 创建窗口
+    window = webview.create_window(title=cfg.appName, url=template, js_api=api, min_size=(650, 400))    # 创建窗口
     api.window = window
     
     webview.start(debug=DEBUG, http_server=True, gui='cef')    # 启动窗口

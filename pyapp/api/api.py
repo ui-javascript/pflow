@@ -33,8 +33,7 @@ class API:
         return dir
 
     def openFile(self):
-        print('属性')
-        print(self.window)
+        # print(self.window)
         file_types = ('Image Files (*.bmp;*.jpg;*.gif)', 'All files (*.*)')
 
         result = self.window.create_file_dialog(webview.OPEN_DIALOG, allow_multiple=True, file_types=file_types)
