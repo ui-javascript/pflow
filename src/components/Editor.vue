@@ -49,20 +49,19 @@ let toolbar = [
 onMounted(() => {
   editor = new Vditor('vditor', {
     mode: 'wysiwyg',
-    height: window.innerHeight - 260,
+    height: window.innerHeight - 270,
     outline: {
       enable: true,
       position: 'right',
     },
     debugger: true,
     typewriterMode: true,
-    placeholder: `
-def factorial(num): 
+    placeholder: 
+`def factorial(num): 
   fact=1 
   for i in range(1,num+1): 
       fact = fact*i 
   return fact 
-
 print(factorial(5))
 `,
     preview: {
@@ -113,6 +112,12 @@ const makeDir = () => {
     alert(res);
   });
 
+};
+
+const openFile = () => {
+  window.pywebview.api.openFile().then((res) => {
+    alert(res)
+  });
 };
 
 const execCode = () => {
@@ -180,12 +185,15 @@ const getObjectURL = (file) => {
     </div>
 
     <div style="margin-top: 10px;">
-      <input type="file" id="image" @change="preview($event)" />
-
-      {{ filePath }}
-
       <button @click="makeDir">创建文件夹</button>
       <button @click="execCode" style="margin-left: 5px;">执行代码</button>
+    </div>
+
+    <div style="margin-top: 10px;">
+      <button @click="openFile" style="margin-left: 5px;">打开文件</button>
+
+      <input type="file" id="image" @change="preview($event)" />
+      {{ filePath }}
     </div>
 
     <div id="vditor" style="margin-top: 10px;"></div>

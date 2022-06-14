@@ -12,12 +12,12 @@ usage: 调用window.pywebview.api.<methodname>(<parameters>)从Javascript执行
 
 import getpass
 import os
-
+from tkinter import filedialog, Tk
+import webview
 
 
 class API:
-    '''本地API，供前端JS调用'''
-
+    
     def getOwner(self):
         return getpass.getuser()
 
@@ -31,3 +31,11 @@ class API:
     def makeDir(self, dir):
         os.makedirs(dir)
         return dir
+
+    def openFile(self):
+        print('属性')
+        print(self.window)
+        file_types = ('Image Files (*.bmp;*.jpg;*.gif)', 'All files (*.*)')
+
+        result = self.window.create_file_dialog(webview.OPEN_DIALOG, allow_multiple=True, file_types=file_types)
+        return result

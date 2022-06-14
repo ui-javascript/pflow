@@ -27,8 +27,8 @@ else:
     DEBUG = False
 
 
-def WebViewApp():
 
+def WebViewApp():
     api = API()    # 本地接口
     cfg = Config()    # 配置文件
 
@@ -36,10 +36,11 @@ def WebViewApp():
     if sys.flags.dev_mode:
         template = 'http://localhost:3000/index.html'  
     
-    webview.create_window(title=cfg.appName, url=template, js_api=api)    # 创建窗口
+    window = webview.create_window(title=cfg.appName, url=template, js_api=api)    # 创建窗口
+    api.window = window
+    
     webview.start(debug=DEBUG, http_server=True, gui='cef')    # 启动窗口
 
 
 if __name__ == "__main__":
-
     WebViewApp()
