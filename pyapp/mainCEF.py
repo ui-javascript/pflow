@@ -33,7 +33,9 @@ def WebViewApp():
     cfg = Config()    # 配置文件
 
     template = os.path.join(MAIN_DIR, "index.html")    # 设置页面，可以指向远程或本地
-
+    if sys.flags.dev_mode:
+        template = 'http://localhost:3000/index.html'  
+    
     webview.create_window(title=cfg.appName, url=template, js_api=api)    # 创建窗口
     webview.start(debug=DEBUG, http_server=True, gui='cef')    # 启动窗口
 
