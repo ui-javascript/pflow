@@ -51,7 +51,7 @@ let toolbar = [
 onMounted(() => {
   new Vditor('vditor', {
     mode: 'wysiwyg',
-    // height: window.innerHeight + 100,
+    height: window.innerHeight - 300,
     outline: {
       enable: true,
       position: 'right',
