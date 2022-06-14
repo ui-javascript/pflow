@@ -1,9 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-// import Vditor from 'vditor'
-// import "vditor/dist/index.css"
-
 
 let toolbar = [
   'emoji',
@@ -48,8 +45,9 @@ let toolbar = [
     ],
   }]
 
+
 onMounted(() => {
-  new Vditor('vditor', {
+  editor = new Vditor('vditor', {
     mode: 'wysiwyg',
     height: window.innerHeight - 260,
     outline: {
@@ -58,7 +56,15 @@ onMounted(() => {
     },
     debugger: true,
     typewriterMode: true,
-    placeholder: 'Hello, Vditor!',
+    placeholder: `
+def factorial(num): 
+  fact=1 
+  for i in range(1,num+1): 
+      fact = fact*i 
+  return fact 
+
+print(factorial(5))
+`,
     preview: {
       markdown: {
         toc: true,
@@ -90,6 +96,8 @@ defineProps({
 
 let creator = ref("pangao");
 
+let editor = ref(null);
+
 const a = ref(2);
 const b = ref(3);
 const filePath = ref("");
@@ -99,6 +107,23 @@ const getOwner = () => {
     creator.value = res;
   });
 };
+
+const makeDir = () => {
+  window.pywebview.api.makeDir(`E:\\workspace-xxx`).then((res) => {
+    alert(res);
+  });
+
+};
+
+const execCode = () => {
+
+  window.pywebview.api.execCode(editor.getValue()).then((res) => {
+    // alert(res)
+  });
+
+};
+
+
 
 const getSum = () => {
   window.pywebview.api.getSum(a.value, b.value).then((res) => {
@@ -158,6 +183,9 @@ const getObjectURL = (file) => {
       <input type="file" id="image" @change="preview($event)" />
 
       {{ filePath }}
+
+      <button @click="makeDir">创建文件夹</button>
+      <button @click="execCode" style="margin-left: 5px;">执行代码</button>
     </div>
 
     <div id="vditor" style="margin-top: 10px;"></div>

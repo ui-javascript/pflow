@@ -11,6 +11,8 @@ usage: 调用window.pywebview.api.<methodname>(<parameters>)从Javascript执行
 '''
 
 import getpass
+import os
+
 
 
 class API:
@@ -20,4 +22,12 @@ class API:
         return getpass.getuser()
 
     def getSum(self, a, b):
-        return a + b
+        return a + b 
+        
+    def execCode(self, str): 
+        exec(str)
+        return '代码执行成功'
+ 
+    def makeDir(self, dir):
+        os.makedirs(dir)
+        return dir
