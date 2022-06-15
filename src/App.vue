@@ -3,7 +3,7 @@
 
     <a-layout-sider 
       collapsible 
-      breakpoint="xl">
+      :resize-directions="['right']">
       <!-- <div class="logo"></div> -->
       <a-menu
         :default-open-keys="['1']"
@@ -11,7 +11,7 @@
         :style="{ width: '100%' }"
         @menu-item-click="onClickMenuItem"
       >
-        <a-menu-item key="0_1" disabled>
+        <a-menu-item key="0_1">
           <IconHome></IconHome>
           Menu 1
         </a-menu-item>
@@ -95,6 +95,10 @@ html, body {
   height: 100%;
   background: var(--color-fill-2);
   border: 1px solid var(--color-border);
+}
+
+.layout-demo :deep(.arco-layout-sider) {
+  /* min-width: 200px; */
 }
 
 .layout-demo :deep(.arco-layout-sider) .logo {
