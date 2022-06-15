@@ -185,16 +185,20 @@ const getObjectURL = (file) => {
     </div>
 
     <div style="margin-top: 10px;">
-      <button @click="makeDir">创建文件夹</button>
-      <button @click="execCode" style="margin-left: 5px;">执行代码</button>
-    </div>
-
-    <div style="margin-top: 10px;">
       <button @click="openFile" style="margin-left: 5px;">打开文件</button>
 
-      <input type="file" id="image" @change="preview($event)" />
-      {{ filePath }}
+      <!-- <input type="file" id="image" @change="preview($event)" />
+      {{ filePath }} -->
     </div>
+    
+    <div style="margin-top: 10px;">
+      <!-- <button @click="makeDir">创建文件夹</button> -->
+      <button @click="execCode" style="margin-left: 5px;">执行代码</button>
+
+
+    </div>
+
+
 
     <div id="vditor" style="margin-top: 10px;"></div>
 
