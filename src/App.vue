@@ -22,28 +22,26 @@
             <IconCalendar></IconCalendar> [1-7]格式转换
           </template>
           <a-menu-item key="1_1">TXT转Word</a-menu-item>
-          <a-menu-item key="1_2">TXT转PDF</a-menu-item>
           <a-sub-menu key="2" title="PDF">
             <a-menu-item key="2_1">PDF转图片</a-menu-item>
             <a-menu-item key="2_2">PDF转Word</a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="3" title="Markdown">
-            <a-menu-item key="3_1">Menu 1</a-menu-item>
-            <a-menu-item key="3_2">Menu 2</a-menu-item>
-            <a-menu-item key="3_3">Menu 3</a-menu-item>
+            <a-menu-item key="3_1">slidev</a-menu-item>
+            <a-menu-item key="3_2">coolma</a-menu-item>
           </a-sub-menu>
         </a-sub-menu>
         <a-menu-item key="0_3">
           <IconCalendar></IconCalendar>
-          [3-6]图床
+          [3-5]项目部署
         </a-menu-item>
         <a-sub-menu key="4">
           <template #title>
             <IconCalendar></IconCalendar> [5-4]爬虫
           </template>
-          <a-menu-item key="4_1">Menu 1</a-menu-item>
-          <a-menu-item key="4_2">Menu 2</a-menu-item>
-          <a-menu-item key="4_3">Menu 3</a-menu-item>
+          <a-menu-item key="4_1">豆瓣</a-menu-item>
+          <a-menu-item key="4_2">知乎</a-menu-item>
+          <a-menu-item key="4_3">掘金</a-menu-item>
         </a-sub-menu>
       </a-menu>
 

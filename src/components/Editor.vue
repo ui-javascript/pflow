@@ -149,10 +149,9 @@ const a = ref(0.1);
 const b = ref(0.2);
 const filePath = ref("");
 
-const getOwner = () => {
-  window.pywebview.api.getOwner().then((res) => {
-    creator.value = res;
-  });
+const getOwner = async () => {
+  const res = await window.pywebview.api.getOwner()
+  creator.value = res
 };
 
 
@@ -168,35 +167,30 @@ const openPdfFile = async () => {
     return
   }
 
-  console.log(pdfPath[0])
+  // console.log(pdfPath[0])
   const outlinesPath = await window.pywebview.api.genPdfOutlines(pdfPath[0])
-  console.log(outlinesPath)
-  Message.success({content: "同目录已生成大纲 " + outlinesPath })
+  // console.log(outlinesPath)
+  Message.success({content: "同目录已生成pdf大纲 " + outlinesPath })
 
 };
 
-const openFolder = () => {
-  window.pywebview.api.openFolder().then((res) => {
-    if (res) {
-      Message.info({content: res})
-    }
-  });
-};
+const openFolder = async () => {
+  const res = window.pywebview.api.openFolder()
+  if (!res) {
+    return
+  }
+  Message.info({content: res})
+}
 
-const execCode = () => {
-
+const execCode = async () => {
   console.log(editor.getValue())
-  window.pywebview.api.execCode(editor.getValue()).then((res) => {
-    // Message.info(res)
-  });
-
+  await window.pywebview.api.execCode(editor.getValue())
 };
 
 
-const getSum = () => {
-  window.pywebview.api.getSum(a.value, b.value).then((res) => {
-    Message.info(res);
-  });
+const getSum = async () => {
+  const res = await window.pywebview.api.getSum(a.value, b.value)
+  Message.info("计算结果: " + res);
 };
 
 const preview = (event) => {
@@ -208,13 +202,10 @@ const preview = (event) => {
 const getObjectURL = (file) => {
   let url = null;
   if (window.createObjectURL != undefined) {
-    // basic
     url = window.createObjectURL(file);
   } else if (window.webkitURL != undefined) {
-    // webkit or chrome
     url = window.webkitURL.createObjectURL(file);
   } else if (window.URL != undefined) {
-    // mozilla(firefox)
     url = window.URL.createObjectURL(file);
   }
   return url;
@@ -224,6 +215,6 @@ const getObjectURL = (file) => {
 
 <style scoped>
 .editor {
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
 }
 </style>
