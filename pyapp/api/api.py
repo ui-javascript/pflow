@@ -14,7 +14,7 @@ import getpass
 import os
 from tkinter import filedialog, Tk
 import webview
-
+from decimal import Decimal
 
 class API:
     
@@ -22,7 +22,8 @@ class API:
         return getpass.getuser()
 
     def getSum(self, a, b):
-        return a + b 
+        # print(str(a), str(b))
+        return str(Decimal(str(a)) + Decimal(str(b)))
         
     def execCode(self, str): 
         exec(str)

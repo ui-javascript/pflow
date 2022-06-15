@@ -1,17 +1,15 @@
 <template>
   <a-layout class="layout-demo">
 
-    <a-layout-sider 
-      collapsible 
-      :resize-directions="['right']">
-      <!-- <div class="logo"></div> -->
+    <a-layout-sider collapsible :resize-directions="['right']">
+      <div class="logo"></div>
       <a-menu
         :default-open-keys="['1']"
         :default-selected-keys="['0_3']"
         :style="{ width: '100%' }"
         @menu-item-click="onClickMenuItem"
       >
-        <a-menu-item key="0_1">
+        <a-menu-item key="0_1" disabled="">
           <IconHome></IconHome>
           Menu 1
         </a-menu-item>
@@ -52,7 +50,7 @@
     </a-layout-sider>
 
     <a-layout-content>   
-      <router-view></router-view>       
+      <!-- <router-view></router-view>        -->
       <Editor msg="Hello Vue3 + pywebview + PyInstaller" />
     </a-layout-content>
   </a-layout>
@@ -72,7 +70,7 @@ import {
 
 
 const onClickMenuItem = (key) => {
-  Message.info({ content: `You select ${key}`, showIcon: true });
+  // Message.info({ content: `You select ${key}`, showIcon: true });
 }
 
 </script>

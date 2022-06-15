@@ -21,7 +21,7 @@
     <div style="margin-top: 10px;">
       <a-input-number :style="{ width: '100px' }" v-model="a" /> +
       <a-input-number :style="{ width: '100px' }" v-model="b" />
-      <a-button @click="getSum" style="margin-left: 5px">相加</a-button>
+      <a-button @click="getSum" style="margin-left: 5px">decimal相加(处理精度问题)</a-button>
     </div>
 
     <div style="margin-top: 10px;">
@@ -44,8 +44,11 @@
 
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
+import { Message} from '@arco-design/web-vue';
 
+import Vditor from 'vditor'
+import "vditor/dist/index.css"
 
 let toolbar = [
   'emoji',
@@ -92,6 +95,7 @@ let toolbar = [
 
 
 onMounted(() => {
+
   editor = new Vditor('vditor', {
     // mode: 'wysiwyg',
     height: 500,
@@ -123,7 +127,10 @@ onMounted(() => {
 
   })
 
-  editor.setValue("def factorial(num):\n\tfact=1\tfor i in range(1,num+1):\n\t\tfact = fact*i\n\treturn fact\nprint(factorial(5))")
+  // @fix
+  nextTick(() => {
+    editor.setValue("def factorial(num):\n\tfact=1\tfor i in range(1,num+1):\n\t\tfact = fact*i\n\treturn fact\nprint(factorial(5))")
+  })
 
 })
 
@@ -136,8 +143,8 @@ let creator = ref("");
 
 let editor = ref(null);
 
-const a = ref(2);
-const b = ref(3);
+const a = ref(0.1);
+const b = ref(0.2);
 const filePath = ref("");
 
 const getOwner = () => {
@@ -149,14 +156,14 @@ const getOwner = () => {
 
 // const makeDir = () => {
 //   window.pywebview.api.makeDir(`E:\\workspace-xxx`).then((res) => {
-//     alert(res);
+//     Message.info(res);
 //   });
 // };
 
 const openFile = () => {
   window.pywebview.api.openFile().then((res) => {
     if (res) {
-      alert(res)
+      Message.info(res)
     }
   });
 };
@@ -165,7 +172,7 @@ const execCode = () => {
 
   console.log(editor.getValue())
   window.pywebview.api.execCode(editor.getValue()).then((res) => {
-    // alert(res)
+    // Message.info(res)
   });
 
 };
@@ -174,7 +181,7 @@ const execCode = () => {
 
 const getSum = () => {
   window.pywebview.api.getSum(a.value, b.value).then((res) => {
-    alert(res);
+    Message.info(res);
   });
 };
 
