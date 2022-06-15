@@ -23,3 +23,5 @@ def gen_pdf_outlines(pdf_path):
 
     with open(pdf_path + '.txt', 'w', encoding='utf-8') as f:
         f.write(directory_str)
+
+    return pdf_path + '.txt'

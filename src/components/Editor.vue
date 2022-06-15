@@ -35,8 +35,7 @@
 
       <a-button @click="openFolder" style="margin-left: 5px;">打开文件夹</a-button>
 
-      <!-- <input type="file" id="image" @change="preview($event)" />
-      {{ filePath }} -->
+
     </div>
 
     <a-divider orientation="left">代码执行</a-divider>
@@ -186,6 +185,7 @@ const openPdfFile = async () => {
 
 };
 
+
 const openFolder = async () => {
   const res = await window.pywebview.api.openFolder()
   if (!res) {
@@ -205,23 +205,23 @@ const getSum = async () => {
   Message.info("计算结果: " + res);
 };
 
-const preview = (event) => {
-  let files = document.getElementById("image").files[0];
-  console.log(files);
-  filePath.value = getObjectURL(files);
-};
-
-const getObjectURL = (file) => {
-  let url = null;
-  if (window.createObjectURL != undefined) {
-    url = window.createObjectURL(file);
-  } else if (window.webkitURL != undefined) {
-    url = window.webkitURL.createObjectURL(file);
-  } else if (window.URL != undefined) {
-    url = window.URL.createObjectURL(file);
-  }
-  return url;
-};
+// const preview = (event) => {
+//   let files = document.getElementById("image").files[0];
+//   console.log(files);
+//   filePath.value = getObjectURL(files);
+// };
+//
+// const getObjectURL = (file) => {
+//   let url = null;
+//   if (window.createObjectURL != undefined) {
+//     url = window.createObjectURL(file);
+//   } else if (window.webkitURL != undefined) {
+//     url = window.webkitURL.createObjectURL(file);
+//   } else if (window.URL != undefined) {
+//     url = window.URL.createObjectURL(file);
+//   }
+//   return url;
+// };
 </script>
 
 
