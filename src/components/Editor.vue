@@ -159,9 +159,7 @@ const getObjectURL = (file) => {
 </script>
 
 <template>
-  <div>
-
-
+  <div class="editor">
 
     <h1>{{ msg }}</h1>
 
@@ -207,5 +205,7 @@ const getObjectURL = (file) => {
 </template>
 
 <style scoped>
-
+.editor {
+  padding: 10px;
+}
 </style>

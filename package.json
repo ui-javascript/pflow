@@ -28,9 +28,11 @@
   },
   "dependencies": {
     "vditor": "^3.8.15",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.16"
   },
   "devDependencies": {
+    "@arco-design/web-vue": "^2.30.2",
     "@vitejs/plugin-vue": "^2.2.0",
     "run-script-os": "^1.1.6",
     "shx": "^0.3.4",
