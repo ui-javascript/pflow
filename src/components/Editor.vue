@@ -3,11 +3,8 @@
 
     <h1>{{ msg }}</h1>
 
-
     <p>本应用的视图层采用 HTML+JS+CSS</p>
     <p>业务层采用本地Python + 调用远程API</p>
-
-
 
     <div style="margin-top: 10px;">
       <span>用户名：{{ creator }}</span>
@@ -19,17 +16,24 @@
     </div>
 
     <div style="margin-top: 10px;">
-      <a-input-number :style="{ width: '100px' }" v-model="a" /> +
-      <a-input-number :style="{ width: '100px' }" v-model="b" />
-      <a-button @click="getSum" style="margin-left: 5px">decimal相加(处理精度问题)</a-button>
+      <a-input-number :style="{ width: '100px' }" v-model="a"/>
+      +
+      <a-input-number :style="{ width: '100px' }" v-model="b"/>
+      =
+      <a-button @click="getSum" style="margin-left: 5px">相加(decimal处理精度问题)</a-button>
     </div>
 
     <div style="margin-top: 10px;">
-      <a-button @click="openFile" style="margin-left: 5px;">打开文件</a-button>
+      <a-button @click="openPdfFile" style="margin-left: 5px;">生成pdf目录大纲</a-button>
+
+      <a-button @click="openFolder" style="margin-left: 5px;">打开文件夹</a-button>
 
       <!-- <input type="file" id="image" @change="preview($event)" />
       {{ filePath }} -->
     </div>
+
+
+    <div id="vditor" style="margin: 10px 0"></div>
 
     <div style="margin-top: 10px;">
       <!-- <button @click="makeDir">创建文件夹</button> -->
@@ -37,15 +41,13 @@
 
     </div>
 
-    <div id="vditor" style="margin: 10px 0"></div>
-
   </div>
 </template>
 
 
 <script setup>
-import { ref, onMounted, nextTick } from "vue";
-import { Message} from '@arco-design/web-vue';
+import {ref, onMounted, nextTick} from "vue";
+import {Message} from '@arco-design/web-vue';
 
 import Vditor from 'vditor'
 import "vditor/dist/index.css"
@@ -160,10 +162,23 @@ const getOwner = () => {
 //   });
 // };
 
-const openFile = () => {
-  window.pywebview.api.openFile().then((res) => {
+const openPdfFile = async () => {
+  const pdfPath = await window.pywebview.api.openPdfFile()
+  if (!pdfPath) {
+    return
+  }
+
+  console.log(pdfPath[0])
+  const outlinesPath = await window.pywebview.api.genPdfOutlines(pdfPath[0])
+  console.log(outlinesPath)
+  Message.success({content: "同目录已生成大纲 " + outlinesPath })
+
+};
+
+const openFolder = () => {
+  window.pywebview.api.openFolder().then((res) => {
     if (res) {
-      Message.info({ content: res })
+      Message.info({content: res})
     }
   });
 };
@@ -176,7 +191,6 @@ const execCode = () => {
   });
 
 };
-
 
 
 const getSum = () => {
