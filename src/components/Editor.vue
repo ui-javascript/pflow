@@ -175,11 +175,11 @@ const openPdfFile = async () => {
 };
 
 const openFolder = async () => {
-  const res = window.pywebview.api.openFolder()
+  const res = await window.pywebview.api.openFolder()
   if (!res) {
     return
   }
-  Message.info({content: res})
+  Message.info("选择文件夹 " + res)
 }
 
 const execCode = async () => {
