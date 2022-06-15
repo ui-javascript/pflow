@@ -6,6 +6,8 @@
     <p>本应用的视图层采用 HTML+JS+CSS</p>
     <p>业务层采用本地Python + 调用远程API</p>
 
+    <a-divider orientation="left">系统信息</a-divider>
+
     <div style="margin-top: 10px;">
       <span>用户名：{{ creator }}</span>
 
@@ -15,13 +17,18 @@
 
     </div>
 
+    <a-divider orientation="left">数学运算</a-divider>
+
     <div style="margin-top: 10px;">
       <a-input-number :style="{ width: '100px' }" v-model="a"/>
       +
       <a-input-number :style="{ width: '100px' }" v-model="b"/>
       =
-      <a-button @click="getSum" style="margin-left: 5px">相加(decimal处理精度问题)</a-button>
+      <a-button @click="getSum" style="margin-left: 5px">相加(decimal)</a-button>
     </div>
+
+    <a-divider orientation="left">文件操作</a-divider>
+
 
     <div style="margin-top: 10px;">
       <a-button @click="openPdfFile" style="margin-left: 5px;">生成pdf目录大纲</a-button>
@@ -32,6 +39,7 @@
       {{ filePath }} -->
     </div>
 
+    <a-divider orientation="left">代码执行</a-divider>
 
     <div id="vditor" style="margin: 10px 0"></div>
 
@@ -40,6 +48,10 @@
       <a-button @click="execCode" style="margin-left: 5px;">执行代码</a-button>
 
     </div>
+
+    <a-divider orientation="left">文件上传</a-divider>
+
+    <a-upload style="margin-top: 10px;" draggable action="/" />
 
   </div>
 </template>
