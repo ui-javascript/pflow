@@ -163,7 +163,7 @@ const getOwner = () => {
 const openFile = () => {
   window.pywebview.api.openFile().then((res) => {
     if (res) {
-      Message.info(res)
+      Message.info({ content: res })
     }
   });
 };
