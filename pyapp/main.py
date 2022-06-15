@@ -33,10 +33,17 @@ def WebViewApp():
     cfg = Config()    # 配置文件
 
     template = os.path.join(MAIN_DIR, "index.html")    # 设置页面，可以指向远程或本地
+    if sys.flags.dev_mode:
+        template = 'http://localhost:3000/index.html'
 
-    webview.create_window(title=cfg.appName, url=template, js_api=api)    # 创建窗口
-    webview.start(debug=DEBUG, http_server=True)    # 启动窗口
+    window = webview.create_window(title=cfg.appName, url=template, js_api=api, confirm_close=True, min_size=(
+        650, 400))    # 创建窗口
+    api.window = window
 
+    localization = {
+        'cocoa.menu.quit': u'确定退出应用吗?',
+    }
+    webview.start(debug=DEBUG, http_server=True, localization=localization)    # 启动窗口
 
 if __name__ == "__main__":
 
