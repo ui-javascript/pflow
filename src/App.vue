@@ -1,7 +1,10 @@
 <template>
   <Layout class="layout-demo">
 
-    <LayoutSider collapsible>
+    <LayoutSider
+      collapsible
+      :collapsed-width="48"
+      :width="280">
       <div class="logo"></div>
       <Menu
         :style="{ width: '100%' }"
@@ -9,39 +12,84 @@
       >
         <MenuItem key="SysInfo">
           <IconHome></IconHome>
-          [0-5]系统信息
+          [0-5]系统信息 <IconCheckCircle />
         </MenuItem>
-        <MenuItem key="Crypt">
-          <IconHome></IconHome>
-          [0-9]加解密
-        </MenuItem>
-        <MenuItem key="Zip">
-          <IconCalendar></IconCalendar>
-          [1-7]解压缩
-        </MenuItem>
+        <SubMenu key="Security">
+          <template #title>
+            <IconCalendar></IconCalendar> [0-9]信息安全
+          </template>
+          <MenuItem key="PassWord">密码管理器</MenuItem>
+          <MenuItem key="Crypto">加解密</MenuItem>
+          <MenuItem key="Decode">编解码</MenuItem>
+          <MenuItem key="FileCrypt">文件加密</MenuItem>
+        </SubMenu>
+
+        <SubMenu key="Translate">
+          <template #title>
+            <IconCalendar></IconCalendar> [1-2]语言翻译
+          </template>
+          <MenuItem key="Transl">翻译</MenuItem>
+          <MenuItem key="Dict">词典</MenuItem>
+        </SubMenu>
+        <SubMenu key="News">
+          <template #title>
+            <IconCalendar></IconCalendar> [1-3]新闻资讯
+          </template>
+          <MenuItem key="TopHub">今日热榜</MenuItem>
+          <MenuItem key="RSSFeed">RSS订阅</MenuItem>
+        </SubMenu>
+        <SubMenu key="Design">
+          <template #title>
+            <IconCalendar></IconCalendar> [1-5]设计素材
+          </template>
+          <MenuItem key="WallPaper">壁纸</MenuItem>
+          <MenuItem key="IconFont">IconFont</MenuItem>
+          <MenuItem key="EmojiFight">表情包</MenuItem>
+        </SubMenu>
         <SubMenu key="Editor">
           <template #title>
-            <IconCalendar></IconCalendar> [1-7]编辑器
+            <IconCalendar></IconCalendar> [1-6]编辑器
           </template>
-          <MenuItem key="MdEditor">Markdown编辑器</MenuItem>
-          <MenuItem key="CodeEditor">Python代码编辑器</MenuItem>
+          <MenuItem key="MdEditor">Markdown编辑器 <IconCheckCircle /></MenuItem>
+          <MenuItem key="CodeEditor">Python代码编辑器 <IconCheckCircle /></MenuItem>
+        </SubMenu>
+        <SubMenu key="Improve">
+          <template #title>
+            <IconCalendar></IconCalendar> [1-6]效率工具
+          </template>
+          <MenuItem key="TodoList">代表事项(Todo)</MenuItem>
+          <MenuItem key="PinMemo">便签</MenuItem>
+          <MenuItem key="CropperIt">截图</MenuItem>
+          <MenuItem key="QrCode">二维码</MenuItem>
+          <MenuItem key="ColorPicker">颜色拾取</MenuItem>
+          <MenuItem key="ShortUrl">短地址</MenuItem>
+          <MenuItem key="Coin">汇率换算</MenuItem>
+          <MenuItem key="RandomAvatar">随机头像</MenuItem>
+          <MenuItem key="CountStat">字数统计</MenuItem>
         </SubMenu>
         <SubMenu key="Office">
           <template #title>
             <IconCalendar></IconCalendar> [1-7]办公文档
           </template>
+          <MenuItem key="RenameBatch">批量重命名</MenuItem>
+          <SubMenu key="Pic" title="图片">
+            <MenuItem key="PicMin">图片压缩</MenuItem>
+            <MenuItem key="RemoveBg">抠除背景 <IconCheckCircle /></MenuItem>
+            <MenuItem key="PicStitch">图片拼接</MenuItem>
+          </SubMenu>
           <SubMenu key="OfficePdf" title="PDF">
-            <MenuItem key="PdfOutline">生成PDF目录大纲</MenuItem>
+            <MenuItem key="PdfOutline">生成PDF目录大纲 <IconCheckCircle /></MenuItem>
           </SubMenu>
           <SubMenu key="Markdown" title="Markdown">
-            <MenuItem key="MdSlidev">slidev</MenuItem>
-            <MenuItem key="MdCoolma">coolma</MenuItem>
+            <MenuItem key="MdSlidev">MD生成PPT(slidev)</MenuItem>
+            <MenuItem key="MdCoolma">MD显示增强(coolma) <IconCheckCircle /></MenuItem>
           </SubMenu>
         </SubMenu>
         <SubMenu key="Convert">
           <template #title>
             <IconCalendar></IconCalendar> [1-7]格式转换
           </template>
+          <MenuItem key="Zip">解压缩</MenuItem>
           <SubMenu key="TXT" title="TXT">
             <MenuItem key="Txt2Word">TXT转Word</MenuItem>
           </SubMenu>
@@ -50,10 +98,6 @@
             <MenuItem key="Pdf2Word">PDF转Word</MenuItem>
           </SubMenu>
         </SubMenu>
-        <MenuItem key="Deploy">
-          <IconCalendar></IconCalendar>
-          [3-5]项目部署
-        </MenuItem>
         <SubMenu key="Cloud">
           <template #title>
             <IconCalendar></IconCalendar> [3-6]云服务
@@ -62,15 +106,33 @@
         </SubMenu>
         <MenuItem key="MathExpr">
           <IconCalendar></IconCalendar>
-          [5-1]数学运算
+          [5-1]数学运算 <IconCheckCircle />
         </MenuItem>
         <SubMenu key="Spider">
           <template #title>
-            <IconCalendar></IconCalendar> [5-4]爬虫
+            <IconCalendar></IconCalendar> [5-4]网络爬虫
           </template>
           <MenuItem key="SpiderDouban">豆瓣</MenuItem>
           <MenuItem key="SpiderZhihu">知乎</MenuItem>
           <MenuItem key="SpiderJuejin">掘金</MenuItem>
+        </SubMenu>
+        <SubMenu key="Devops">
+          <template #title>
+            <IconCalendar></IconCalendar> [5-5]自动化脚本
+          </template>
+          <MenuItem key="Deploy">前端项目部署</MenuItem>
+        </SubMenu>
+        <SubMenu key="AI">
+          <template #title>
+            <IconCalendar></IconCalendar> [5-6]智能助手
+          </template>
+          <MenuItem key="OCR">OCR</MenuItem>
+        </SubMenu>
+        <SubMenu key="MiniGame">
+          <template #title>
+            <IconCalendar></IconCalendar> [6-5]小游戏
+          </template>
+          <MenuItem key="Snake">贪吃蛇</MenuItem>
         </SubMenu>
       </Menu>
 
@@ -94,15 +156,14 @@ const router = useRouter();
 import {
   IconHome,
   IconCalendar,
+  IconCheckCircle,
 } from '@arco-design/web-vue/es/icon';
-import {Message} from "@arco-design/web-vue";
-
+// Message.info({ content: `You select ${key}`, showIcon: true });
 
 const onClickMenuItem = (key) => {
   // Message.info({ content: `You select ${key}`, showIcon: true });
   router.push(key)
 }
-
 </script>
 
 
@@ -126,7 +187,7 @@ html, body {
 }
 
 .layout-demo :deep(.arco-layout-sider) {
-   width: 300px;
+   /*min-width: 300px;*/
 }
 
 .layout-demo :deep(.arco-layout-sider) .logo {

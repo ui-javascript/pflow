@@ -6,7 +6,6 @@
     <!--      <Button @click="openFolder" style="margin-left: 5px;">打开文件夹</Button>-->
   </div>
 
-
   <p v-show="pdfPath">
     pdf路径: <Link :href="pdfPath" icon>{{ pdfPath }}</Link>
   </p>
@@ -30,13 +29,14 @@ const outlinePath = ref(null)
 
 import {Message} from "@arco-design/web-vue";
 const openPdfFile = async () => {
-  const pdfPath = await window.pywebview.api.openPdfFile()
-  if (!pdfPath) {
+  const pdfFilePath = await window.pywebview.api.openPdfFile()
+  if (!pdfFilePath) {
     return
   }
 
-  pdfPath.value = pdfPath[0]
-  const outlinesFilePath = await window.pywebview.api.genPdfOutlines(pdfPath[0])
+  pdfPath.value = pdfFilePath[0]
+
+  const outlinesFilePath = await window.pywebview.api.genPdfOutlines(pdfFilePath[0])
   outlinePath.value = outlinesFilePath
   // Message.success({content: "已生成pdf大纲 " + outlinesPath})
   // window.open(outlinesPath)
