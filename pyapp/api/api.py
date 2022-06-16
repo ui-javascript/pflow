@@ -15,7 +15,7 @@ import os
 import webview
 from decimal import Decimal
 from utils.pdf_utils import gen_pdf_outlines
-
+from utils.remove_bg_utils import remove_bg
 
 class API:
 
@@ -55,8 +55,12 @@ class API:
         return dir
 
     def openFiles(self):
-        # file_types = ('Image Files (*.bmp;*.jpg;*.gif)', 'All files (*.*)')
         result = self.window.create_file_dialog(webview.OPEN_DIALOG, allow_multiple=True)
+        return result
+
+    def openPicFile(self):
+        file_types = ('Image Files (*.png;*.jpg)', 'All files (*.*)')
+        result = self.window.create_file_dialog(webview.OPEN_DIALOG, file_types=file_types)
         return result
 
     def openPdfFile(self):
@@ -76,6 +80,6 @@ class API:
     def genPdfOutlines(self, pdfPath):
         return gen_pdf_outlines(pdfPath)
 
-
-
+    def removeBg(self, picPath, apiKey):
+        return remove_bg(picPath, apiKey)
 

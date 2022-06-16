@@ -1,21 +1,20 @@
 <template>
-  <div style="margin-top: 10px;">
-    <Button @click="openPdfFile" style="margin-left: 5px;">生成pdf目录大纲</Button>
-    <Button @click="execPyFile" style="margin-left: 5px;">生成pdf目录大纲(安装依赖+选择Python脚本+选择PDF)</Button>
+
+  <Button @click="openPdfFile" style="margin-left: 5px;">生成pdf目录大纲</Button>
+  <Button @click="execPyFile" style="margin-left: 5px;">生成pdf目录大纲(安装依赖+选择Python脚本+选择PDF)</Button>
 
     <!--      <Button @click="openFolder" style="margin-left: 5px;">打开文件夹</Button>-->
-  </div>
 
   <p v-show="pdfPath">
-    pdf路径: <Link :href="pdfPath" icon>{{ pdfPath }}</Link>
+    pdf路径: <a target="_blank" :href="pdfPath">{{ pdfPath }}</a>
   </p>
 
   <p v-show="outlinePath">
-    大纲路径: <Link :href="outlinePath" icon>{{ outlinePath }}</Link>
+    大纲路径: <a target="_blank" :href="outlinePath">{{ outlinePath }}</a>
   </p>
 
   <p v-show="pyFilePath">
-    python脚本路径: <Link :href="pyFilePath" icon>{{ pyFilePath }}</Link>
+    python脚本路径: <a target="_blank" :href="pyFilePath">{{ pyFilePath }}</a>
   </p>
 
 </template>
