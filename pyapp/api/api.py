@@ -14,7 +14,7 @@ import getpass
 import os
 import webview
 from decimal import Decimal
-from api.pdf_utils import gen_pdf_outlines
+from utils.pdf_utils import gen_pdf_outlines
 
 
 class API:
