@@ -32,25 +32,31 @@
 
     <div style="margin-top: 10px;">
       <Button @click="openPdfFile" style="margin-left: 5px;">生成pdf目录大纲</Button>
+      <Button @click="execPyFile" style="margin-left: 5px;">生成pdf目录大纲(安装依赖+选择Python脚本+选择PDF)</Button>
 
-      <Button @click="openFolder" style="margin-left: 5px;">打开文件夹</Button>
-
+<!--      <Button @click="openFolder" style="margin-left: 5px;">打开文件夹</Button>-->
 
     </div>
 
     <Divider orientation="left">代码执行</Divider>
 
-    <div id="vditor" style="margin: 10px 0"></div>
+    <div style="height: 300px">
+    <PythonEditor v-model="code"></PythonEditor>
+    </div>
 
     <div style="margin-top: 10px;">
       <!-- <button @click="makeDir">创建文件夹</button> -->
-      <Button @click="execCode" style="margin-left: 5px;">执行代码</Button>
+      <Button @click="execCodeStr" style="margin-left: 5px;">执行代码</Button>
 
     </div>
 
+    <Divider orientation="left">富文本编辑器</Divider>
+    <div id="vditor" style="margin: 10px 0"></div>
+
+
     <Divider orientation="left">文件上传</Divider>
 
-    <Upload style="margin-top: 10px;" draggable action="/" />
+    <Upload style="margin-top: 10px;" draggable action="/"/>
 
   </div>
 </template>
@@ -60,8 +66,26 @@
 import {ref, onMounted, nextTick} from "vue";
 import {Message} from '@arco-design/web-vue';
 
+
 import Vditor from 'vditor'
 import "vditor/dist/index.css"
+
+
+import PythonEditor from '../components/PythonEditor.vue';
+
+let creator = ref("");
+
+let editor = ref(null);
+
+const code = ref("def factorial(num):\n\tfact=1\n\tfor i in range(1,num+1):\n\t\tfact = fact*i\n\treturn fact\nprint(factorial(5))")
+const a = ref(0.1);
+const b = ref(0.2);
+const filePath = ref("");
+
+defineProps({
+  msg: String,
+});
+
 
 let toolbar = [
   'emoji',
@@ -110,7 +134,7 @@ let toolbar = [
 onMounted(() => {
 
   editor = new Vditor('vditor', {
-    // mode: 'wysiwyg',
+    mode: 'wysiwyg',
     height: 500,
     outline: {
       enable: true,
@@ -142,23 +166,14 @@ onMounted(() => {
 
   // @fix
   nextTick(() => {
-    editor.setValue("def factorial(num):\n\tfact=1\tfor i in range(1,num+1):\n\t\tfact = fact*i\n\treturn fact\nprint(factorial(5))")
+    // code.value = "xxx"
+    // code.value = "def factorial(num):\n\tfact=1\tfor i in range(1,num+1):\n\t\tfact = fact*i\n\treturn fact\nprint(factorial(5))"
   })
 
 })
 
 
-defineProps({
-  msg: String,
-});
 
-let creator = ref("");
-
-let editor = ref(null);
-
-const a = ref(0.1);
-const b = ref(0.2);
-const filePath = ref("");
 
 const getOwner = async () => {
   const res = await window.pywebview.api.getOwner()
@@ -181,7 +196,8 @@ const openPdfFile = async () => {
   // console.log(pdfPath[0])
   const outlinesPath = await window.pywebview.api.genPdfOutlines(pdfPath[0])
   // console.log(outlinesPath)
-  Message.success({content: "同目录已生成pdf大纲 " + outlinesPath })
+  Message.success({content: "已生成pdf大纲 " + outlinesPath})
+  // window.open(outlinesPath)
 
 };
 
@@ -194,9 +210,29 @@ const openFolder = async () => {
   Message.info("选择文件夹 " + res)
 }
 
-const execCode = async () => {
-  console.log(editor.getValue())
-  await window.pywebview.api.execCode(editor.getValue())
+const execCodeStr = async () => {
+  console.log(code.value)
+  await window.pywebview.api.execCodeStr(code.value)
+};
+
+const execPyFile = async () => {
+  const pyFilePath = await window.pywebview.api.openPyFile()
+  if (!pyFilePath) {
+    return
+  }
+
+  const pdfFilePath = await window.pywebview.api.openPdfFile()
+  if (!pdfFilePath) {
+    return
+  }
+
+  console.log(pyFilePath[0], pdfFilePath[0])
+
+  const res = await window.pywebview.api.execPyFileWithArgv1(pyFilePath[0], pdfFilePath[0])
+  if (!res) {
+    return
+  }
+  Message.success("Python文件执行成功")
 };
 
 
@@ -205,23 +241,7 @@ const getSum = async () => {
   Message.info("计算结果: " + res);
 };
 
-// const preview = (event) => {
-//   let files = document.getElementById("image").files[0];
-//   console.log(files);
-//   filePath.value = getObjectURL(files);
-// };
-//
-// const getObjectURL = (file) => {
-//   let url = null;
-//   if (window.createObjectURL != undefined) {
-//     url = window.createObjectURL(file);
-//   } else if (window.webkitURL != undefined) {
-//     url = window.webkitURL.createObjectURL(file);
-//   } else if (window.URL != undefined) {
-//     url = window.URL.createObjectURL(file);
-//   }
-//   return url;
-// };
+
 </script>
 
 
