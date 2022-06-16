@@ -70,7 +70,7 @@ const execPyFile = async () => {
   if (!res) {
     return
   }
-  Message.success("Python文件执行成功")
+  // Message.success("Python文件执行成功")
 };
 
 

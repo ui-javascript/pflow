@@ -4,8 +4,6 @@
     <LayoutSider collapsible>
       <div class="logo"></div>
       <Menu
-        :default-open-keys="['1']"
-        :default-selected-keys="['0_3']"
         :style="{ width: '100%' }"
         @menu-item-click="onClickMenuItem"
       >
@@ -13,11 +11,11 @@
           <IconHome></IconHome>
           [0-5]系统信息
         </MenuItem>
-        <MenuItem key="0_1">
+        <MenuItem key="Crypt">
           <IconHome></IconHome>
           [0-9]加解密
         </MenuItem>
-        <MenuItem key="0_2">
+        <MenuItem key="Zip">
           <IconCalendar></IconCalendar>
           [1-7]解压缩
         </MenuItem>
@@ -35,22 +33,24 @@
           <SubMenu key="OfficePdf" title="PDF">
             <MenuItem key="PdfOutline">生成PDF目录大纲</MenuItem>
           </SubMenu>
+          <SubMenu key="Markdown" title="Markdown">
+            <MenuItem key="MdSlidev">slidev</MenuItem>
+            <MenuItem key="MdCoolma">coolma</MenuItem>
+          </SubMenu>
         </SubMenu>
-        <SubMenu key="1">
+        <SubMenu key="Convert">
           <template #title>
             <IconCalendar></IconCalendar> [1-7]格式转换
           </template>
-          <MenuItem key="1_1">TXT转Word</MenuItem>
-          <SubMenu key="2" title="PDF">
-            <MenuItem key="2_1">PDF转图片</MenuItem>
-            <MenuItem key="2_2">PDF转Word</MenuItem>
+          <SubMenu key="TXT" title="TXT">
+            <MenuItem key="Txt2Word">TXT转Word</MenuItem>
           </SubMenu>
-          <SubMenu key="3" title="Markdown">
-            <MenuItem key="3_1">slidev</MenuItem>
-            <MenuItem key="3_2">coolma</MenuItem>
+          <SubMenu key="PDF" title="PDF">
+            <MenuItem key="Pdf2Pic">PDF转图片</MenuItem>
+            <MenuItem key="Pdf2Word">PDF转Word</MenuItem>
           </SubMenu>
         </SubMenu>
-        <MenuItem key="0_3">
+        <MenuItem key="Deploy">
           <IconCalendar></IconCalendar>
           [3-5]项目部署
         </MenuItem>
@@ -64,13 +64,13 @@
           <IconCalendar></IconCalendar>
           [5-1]数学运算
         </MenuItem>
-        <SubMenu key="4">
+        <SubMenu key="Spider">
           <template #title>
             <IconCalendar></IconCalendar> [5-4]爬虫
           </template>
-          <MenuItem key="4_1">豆瓣</MenuItem>
-          <MenuItem key="4_2">知乎</MenuItem>
-          <MenuItem key="4_3">掘金</MenuItem>
+          <MenuItem key="SpiderDouban">豆瓣</MenuItem>
+          <MenuItem key="SpiderZhihu">知乎</MenuItem>
+          <MenuItem key="SpiderJuejin">掘金</MenuItem>
         </SubMenu>
       </Menu>
 
