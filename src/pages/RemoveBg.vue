@@ -9,10 +9,10 @@
   </p>
 
   <p>
-    图片路径: <a target="_blank" :href="picPath">{{picPath}}</a>
+    图片路径: <a target="_blank" :href="picPath">{{ picPath }}</a>
   </p>
   <p>
-    处理后图片路径: <a target="_blank" :href="outPath">{{outPath}}</a>
+    处理后图片路径: <a target="_blank" :href="outPath">{{ outPath }}</a>
   </p>
 
   <Alert style="margin-top: 50px;">
@@ -20,27 +20,38 @@
       API_KEY需要到 <a target="_blank" href="https://www.remove.bg/">www.remove.bg</a> 注册并免费生成
     </template>
     <p>
-      <Img style="width: 100%;" src="https://luo0412.oss-cn-hangzhou.aliyuncs.com/1655396504404-JBAJRxJp3rC8.png" />
+      <Image
+          :preview-props="{
+      actionsLayout: ['rotateRight', 'zoomIn', 'zoomOut'],
+    }"
+          width="100%"
+          src="https://luo0412.oss-cn-hangzhou.aliyuncs.com/1655396504404-JBAJRxJp3rC8.png"/>
     </p>
-    效果演示如下:
+    <TypographyTitle :heading="6">效果演示如下:</TypographyTitle>
     <p>
-      <Img width="300" src="https://luo0412.oss-cn-hangzhou.aliyuncs.com/1655396765593-F7yYQKeHWici.png" />
+      <Image
+          :preview-props="{
+      actionsLayout: ['rotateRight', 'zoomIn', 'zoomOut'],
+    }"
+          width="300"
+          src="https://luo0412.oss-cn-hangzhou.aliyuncs.com/1655396765593-F7yYQKeHWici.png"/>
     </p>
   </Alert>
 
 
   <!--  <Alert type="warning">-->
-<!--    <template #title>-->
-<!--      常见问题-->
-<!--    </template>-->
+  <!--    <template #title>-->
+  <!--      常见问题-->
+  <!--    </template>-->
 
-<!--    <a target="_blank" href="https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">ImportError: Microsoft Visual C++ Redistributable for Visual Studio 2019 not installed on the machine.</a>-->
-<!--  </Alert>-->
+  <!--    <a target="_blank" href="https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">ImportError: Microsoft Visual C++ Redistributable for Visual Studio 2019 not installed on the machine.</a>-->
+  <!--  </Alert>-->
 
 </template>
 
 <script setup>
 import {ref} from "vue"
+
 const apiKey = ref(localStorage.getItem("rmBgApiKey"))
 const picPath = ref(null)
 const outPath = ref(null)

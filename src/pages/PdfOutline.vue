@@ -5,7 +5,7 @@
   </p>
 
   <p style="margin-top: 10px;">
-    <Button @click="execPyFile" style="margin-left: 5px;">方式2: 生成pdf大纲-自定义(安装依赖+先选择Python脚本+再选择PDF)</Button>
+    <Button @click="execPyFile" style="margin-left: 5px;">方式2: 生成pdf大纲-自定义(自行安装依赖+先选择Python脚本+再选择PDF)</Button>
   </p>
 
   <!--      <Button @click="openFolder" style="margin-left: 5px;">打开文件夹</Button>-->

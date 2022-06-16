@@ -3,3 +3,5 @@ pyinstaller==4.10
 tinyaes==1.0.3
 PyPDF2==2.2.0
 removebg==0.04
+beautifulsoup4==4.9.2
+requests==2.24.0

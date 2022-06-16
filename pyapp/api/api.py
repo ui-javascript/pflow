@@ -16,6 +16,8 @@ import webview
 from decimal import Decimal
 from utils.pdf_utils import gen_pdf_outlines
 from utils.remove_bg_utils import remove_bg
+from utils.convert_json_to_csv import convert_json_to_csv
+from utils.extract_urls_utils import extract_url
 
 class API:
 
@@ -63,6 +65,11 @@ class API:
         result = self.window.create_file_dialog(webview.OPEN_DIALOG, file_types=file_types)
         return result
 
+    def openJsonFile(self):
+        file_types = ('Json Files (*.json)', 'All files (*.*)')
+        result = self.window.create_file_dialog(webview.OPEN_DIALOG, file_types=file_types)
+        return result
+
     def openPdfFile(self):
         file_types = ('Pdf files (*.pdf)', 'All files (*.*)')
         result = self.window.create_file_dialog(webview.OPEN_DIALOG, file_types=file_types)
@@ -82,4 +89,10 @@ class API:
 
     def removeBg(self, picPath, apiKey):
         return remove_bg(picPath, apiKey)
+
+    def json2csv(self, jsonPath):
+        return convert_json_to_csv(jsonPath)
+
+    def extractUrl(self, url):
+        return extract_url(url)
 
