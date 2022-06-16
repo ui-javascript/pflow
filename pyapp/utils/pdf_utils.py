@@ -14,6 +14,9 @@ def bookmark_listhandler(list):
             bookmark_listhandler(message)
 
 def gen_pdf_outlines(pdf_path):
+    global directory_str
+    directory_str = ""
+
     # pdf_path = "D:\\dl-nut\\我的坚果云\\XXX-B·卡尔-201108.pdf"
     with open(pdf_path, 'rb') as f:
         pdf = pdf_read(f)

@@ -1,9 +1,14 @@
 <template>
 
-  <Button @click="openPdfFile" style="margin-left: 5px;">生成pdf目录大纲</Button>
-  <Button @click="execPyFile" style="margin-left: 5px;">生成pdf目录大纲(安装依赖+选择Python脚本+选择PDF)</Button>
+  <p>
+    <Button @click="openPdfFile" style="margin-left: 5px;">方式1: 生成pdf大纲-内置脚本(直接选择PDF)</Button>
+  </p>
 
-    <!--      <Button @click="openFolder" style="margin-left: 5px;">打开文件夹</Button>-->
+  <p style="margin-top: 10px;">
+    <Button @click="execPyFile" style="margin-left: 5px;">方式2: 生成pdf大纲-自定义(安装依赖+先选择Python脚本+再选择PDF)</Button>
+  </p>
+
+  <!--      <Button @click="openFolder" style="margin-left: 5px;">打开文件夹</Button>-->
 
   <p v-show="pdfPath">
     pdf路径: <a target="_blank" :href="pdfPath">{{ pdfPath }}</a>
@@ -63,12 +68,12 @@ const execPyFile = async () => {
 
   pyFilePath.value = pyPath[0]
   pdfPath.value = pdfFilePath[0]
-  console.log(pyFilePath[0], )
 
   const res = await window.pywebview.api.execPyFileWithArgv1(pyPath[0], pdfFilePath[0])
   if (!res) {
     return
   }
+  outlinePath.value = pdfPath.value + ".txt"
   // Message.success("Python文件执行成功")
 };
 
