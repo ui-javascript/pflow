@@ -9,6 +9,10 @@
         :style="{ width: '100%' }"
         @menu-item-click="onClickMenuItem"
       >
+        <MenuItem key="SysInfo">
+          <IconHome></IconHome>
+          [0-5]系统信息
+        </MenuItem>
         <MenuItem key="0_1">
           <IconHome></IconHome>
           [0-9]加解密
@@ -17,6 +21,21 @@
           <IconCalendar></IconCalendar>
           [1-7]解压缩
         </MenuItem>
+        <SubMenu key="Editor">
+          <template #title>
+            <IconCalendar></IconCalendar> [1-7]编辑器
+          </template>
+          <MenuItem key="MdEditor">Markdown编辑器</MenuItem>
+          <MenuItem key="CodeEditor">Python代码编辑器</MenuItem>
+        </SubMenu>
+        <SubMenu key="Office">
+          <template #title>
+            <IconCalendar></IconCalendar> [1-7]办公文档
+          </template>
+          <SubMenu key="OfficePdf" title="PDF">
+            <MenuItem key="PdfOutline">生成PDF目录大纲</MenuItem>
+          </SubMenu>
+        </SubMenu>
         <SubMenu key="1">
           <template #title>
             <IconCalendar></IconCalendar> [1-7]格式转换
@@ -35,6 +54,16 @@
           <IconCalendar></IconCalendar>
           [3-5]项目部署
         </MenuItem>
+        <SubMenu key="Cloud">
+          <template #title>
+            <IconCalendar></IconCalendar> [3-6]云服务
+          </template>
+          <MenuItem key="OssUpload">OSS图床</MenuItem>
+        </SubMenu>
+        <MenuItem key="MathExpr">
+          <IconCalendar></IconCalendar>
+          [5-1]数学运算
+        </MenuItem>
         <SubMenu key="4">
           <template #title>
             <IconCalendar></IconCalendar> [5-4]爬虫
@@ -48,8 +77,8 @@
     </LayoutSider>
 
     <LayoutContent>   
-      <!-- <router-view></router-view>        -->
-      <Editor msg="Hello Vue3 + pywebview + PyInstaller" />
+       <router-view></router-view>
+<!--      <Editor msg="Hello Vue3 + pywebview + PyInstaller" />-->
     </LayoutContent>
   </Layout>
 
@@ -58,17 +87,20 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import Editor from './pages/Editor.vue'
-import { Message} from '@arco-design/web-vue';
+
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
 import {
   IconHome,
   IconCalendar,
 } from '@arco-design/web-vue/es/icon';
+import {Message} from "@arco-design/web-vue";
 
 
 const onClickMenuItem = (key) => {
   // Message.info({ content: `You select ${key}`, showIcon: true });
+  router.push(key)
 }
 
 </script>
@@ -94,7 +126,7 @@ html, body {
 }
 
 .layout-demo :deep(.arco-layout-sider) {
-  /* min-width: 200px; */
+   width: 300px;
 }
 
 .layout-demo :deep(.arco-layout-sider) .logo {
@@ -121,7 +153,7 @@ html, body {
   line-height: 48px;
 }
 .layout-demo :deep(.arco-layout-content) {
-  padding: 24px;
+  padding: 16px;
   color: var(--color-text-2);
   font-weight: 400;
   font-size: 14px;
