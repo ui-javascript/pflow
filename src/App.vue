@@ -57,11 +57,11 @@
           <template #title>
             <IconCalendar></IconCalendar> [1-6]效率工具
           </template>
-          <MenuItem key="TodoList">代表事项(Todo)</MenuItem>
-          <MenuItem key="PinMemo">便签</MenuItem>
-          <MenuItem key="CropperIt">截图</MenuItem>
+          <MenuItem key="TodoList">待办清单(TodoList)</MenuItem>
+          <MenuItem key="PinMemo">备忘录</MenuItem>
+<!--          <MenuItem key="CropperIt">截图</MenuItem>-->
           <MenuItem key="QrCode">二维码</MenuItem>
-          <MenuItem key="ColorPicker">颜色拾取</MenuItem>
+<!--          <MenuItem key="ColorPicker">颜色拾取</MenuItem>-->
           <MenuItem key="ShortUrl">短地址</MenuItem>
           <MenuItem key="Coin">汇率换算</MenuItem>
           <MenuItem key="RandomAvatar">随机头像</MenuItem>
