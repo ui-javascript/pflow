@@ -3,7 +3,7 @@
 
     <LayoutSider
       collapsible
-      :collapsed-width="48"
+      :collapsed-width="65"
       :width="280">
       <div class="logo"></div>
       <Menu
@@ -18,10 +18,10 @@
           <template #title>
             <IconCalendar></IconCalendar> [0-9]信息安全
           </template>
-          <MenuItem key="PassWord">密码管理器</MenuItem>
           <MenuItem key="Crypto">加解密</MenuItem>
           <MenuItem key="Decode">编解码</MenuItem>
           <MenuItem key="FileCrypt">文件加密</MenuItem>
+          <MenuItem key="PassWord">密码管理器</MenuItem>
         </SubMenu>
 
         <SubMenu key="Translate">
