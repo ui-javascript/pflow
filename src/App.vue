@@ -1,57 +1,57 @@
 <template>
-  <a-layout class="layout-demo">
+  <Layout class="layout-demo">
 
-    <a-layout-sider collapsible>
+    <LayoutSider collapsible>
       <div class="logo"></div>
-      <a-menu
+      <Menu
         :default-open-keys="['1']"
         :default-selected-keys="['0_3']"
         :style="{ width: '100%' }"
         @menu-item-click="onClickMenuItem"
       >
-        <a-menu-item key="0_1">
+        <MenuItem key="0_1">
           <IconHome></IconHome>
           [0-9]加解密
-        </a-menu-item>
-        <a-menu-item key="0_2">
+        </MenuItem>
+        <MenuItem key="0_2">
           <IconCalendar></IconCalendar>
           [1-7]解压缩
-        </a-menu-item>
-        <a-sub-menu key="1">
+        </MenuItem>
+        <SubMenu key="1">
           <template #title>
             <IconCalendar></IconCalendar> [1-7]格式转换
           </template>
-          <a-menu-item key="1_1">TXT转Word</a-menu-item>
-          <a-sub-menu key="2" title="PDF">
-            <a-menu-item key="2_1">PDF转图片</a-menu-item>
-            <a-menu-item key="2_2">PDF转Word</a-menu-item>
-          </a-sub-menu>
-          <a-sub-menu key="3" title="Markdown">
-            <a-menu-item key="3_1">slidev</a-menu-item>
-            <a-menu-item key="3_2">coolma</a-menu-item>
-          </a-sub-menu>
-        </a-sub-menu>
-        <a-menu-item key="0_3">
+          <MenuItem key="1_1">TXT转Word</MenuItem>
+          <SubMenu key="2" title="PDF">
+            <MenuItem key="2_1">PDF转图片</MenuItem>
+            <MenuItem key="2_2">PDF转Word</MenuItem>
+          </SubMenu>
+          <SubMenu key="3" title="Markdown">
+            <MenuItem key="3_1">slidev</MenuItem>
+            <MenuItem key="3_2">coolma</MenuItem>
+          </SubMenu>
+        </SubMenu>
+        <MenuItem key="0_3">
           <IconCalendar></IconCalendar>
           [3-5]项目部署
-        </a-menu-item>
-        <a-sub-menu key="4">
+        </MenuItem>
+        <SubMenu key="4">
           <template #title>
             <IconCalendar></IconCalendar> [5-4]爬虫
           </template>
-          <a-menu-item key="4_1">豆瓣</a-menu-item>
-          <a-menu-item key="4_2">知乎</a-menu-item>
-          <a-menu-item key="4_3">掘金</a-menu-item>
-        </a-sub-menu>
-      </a-menu>
+          <MenuItem key="4_1">豆瓣</MenuItem>
+          <MenuItem key="4_2">知乎</MenuItem>
+          <MenuItem key="4_3">掘金</MenuItem>
+        </SubMenu>
+      </Menu>
 
-    </a-layout-sider>
+    </LayoutSider>
 
-    <a-layout-content>   
+    <LayoutContent>   
       <!-- <router-view></router-view>        -->
       <Editor msg="Hello Vue3 + pywebview + PyInstaller" />
-    </a-layout-content>
-  </a-layout>
+    </LayoutContent>
+  </Layout>
 
 </template>
 

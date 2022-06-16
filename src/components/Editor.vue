@@ -6,51 +6,51 @@
     <p>本应用的视图层采用 HTML+JS+CSS</p>
     <p>业务层采用本地Python + 调用远程API</p>
 
-    <a-divider orientation="left">系统信息</a-divider>
+    <Divider orientation="left">系统信息</Divider>
 
     <div style="margin-top: 10px;">
       <span>用户名：{{ creator }}</span>
 
-      <a-button type="outline" v-show="!creator" @click="getOwner">
+      <Button type="outline" v-show="!creator" @click="getOwner">
         获取本机用户名
-      </a-button>
+      </Button>
 
     </div>
 
-    <a-divider orientation="left">数学运算</a-divider>
+    <Divider orientation="left">数学运算</Divider>
 
     <div style="margin-top: 10px;">
-      <a-input-number :style="{ width: '100px' }" v-model="a"/>
+      <InputNumber :style="{ width: '100px' }" v-model="a"/>
       +
-      <a-input-number :style="{ width: '100px' }" v-model="b"/>
+      <InputNumber :style="{ width: '100px' }" v-model="b"/>
       =
-      <a-button @click="getSum" style="margin-left: 5px">相加(decimal)</a-button>
+      <Button @click="getSum" style="margin-left: 5px">相加(decimal)</Button>
     </div>
 
-    <a-divider orientation="left">文件操作</a-divider>
+    <Divider orientation="left">文件操作</Divider>
 
 
     <div style="margin-top: 10px;">
-      <a-button @click="openPdfFile" style="margin-left: 5px;">生成pdf目录大纲</a-button>
+      <Button @click="openPdfFile" style="margin-left: 5px;">生成pdf目录大纲</Button>
 
-      <a-button @click="openFolder" style="margin-left: 5px;">打开文件夹</a-button>
+      <Button @click="openFolder" style="margin-left: 5px;">打开文件夹</Button>
 
 
     </div>
 
-    <a-divider orientation="left">代码执行</a-divider>
+    <Divider orientation="left">代码执行</Divider>
 
     <div id="vditor" style="margin: 10px 0"></div>
 
     <div style="margin-top: 10px;">
       <!-- <button @click="makeDir">创建文件夹</button> -->
-      <a-button @click="execCode" style="margin-left: 5px;">执行代码</a-button>
+      <Button @click="execCode" style="margin-left: 5px;">执行代码</Button>
 
     </div>
 
-    <a-divider orientation="left">文件上传</a-divider>
+    <Divider orientation="left">文件上传</Divider>
 
-    <a-upload style="margin-top: 10px;" draggable action="/" />
+    <Upload style="margin-top: 10px;" draggable action="/" />
 
   </div>
 </template>
