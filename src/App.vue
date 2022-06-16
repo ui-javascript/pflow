@@ -51,6 +51,7 @@
             <IconCalendar></IconCalendar> [1-6]编辑器
           </template>
           <MenuItem key="MdEditor">Markdown编辑器 <IconCheckCircle /></MenuItem>
+          <MenuItem key="JSONEditor">JSON编辑器 <IconCheckCircle /></MenuItem>
           <MenuItem key="CodeEditor">Python代码编辑器 <IconCheckCircle /></MenuItem>
         </SubMenu>
         <SubMenu key="Improve">
@@ -90,6 +91,9 @@
             <IconCalendar></IconCalendar> [1-7]格式转换
           </template>
           <MenuItem key="Zip">解压缩</MenuItem>
+          <SubMenu key="Excel" title="Excel">
+            <MenuItem key="Excel2JSON">Excel转JSON</MenuItem>
+          </SubMenu>
           <SubMenu key="TXT" title="TXT">
             <MenuItem key="Txt2Word">TXT转Word</MenuItem>
           </SubMenu>

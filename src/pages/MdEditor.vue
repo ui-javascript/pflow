@@ -88,8 +88,19 @@ onMounted(() => {
 
   // @fix
   nextTick(() => {
-    // code.value = "xxx"
-    // code.value = "def factorial(num):\n\tfact=1\tfor i in range(1,num+1):\n\t\tfact = fact*i\n\treturn fact\nprint(factorial(5))"
+    editor.setValue(`# 标题1
+
+1. 事项1
+2. 事项2
+
+## 标题1-1
+
+## 标题1-2
+
+# 标题2
+
+## 标题2-1
+`)
   })
 
 })
