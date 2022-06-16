@@ -15,6 +15,10 @@ import sys
 
 import webview
 
+# @fix https://blog.csdn.net/qq_40472613/article/details/119670598
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# sys.path.append(BASE_DIR)
+
 from api.api import API
 from config.config import Config
 
