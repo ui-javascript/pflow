@@ -11,15 +11,15 @@
   <!--      <Button @click="openFolder" style="margin-left: 5px;">打开文件夹</Button>-->
 
   <p v-show="pdfPath">
-    pdf路径: <a target="_blank" :href="pdfPath">{{ pdfPath }}</a>
+    pdf路径: <Link target="_blank" :href="pdfPath">{{ pdfPath }}</Link>
   </p>
 
   <p v-show="outlinePath">
-    大纲路径: <a target="_blank" :href="outlinePath">{{ outlinePath }}</a>
+    大纲路径: <Link target="_blank" :href="outlinePath">{{ outlinePath }}</Link>
   </p>
 
   <p v-show="pyFilePath">
-    python脚本路径: <a target="_blank" :href="pyFilePath">{{ pyFilePath }}</a>
+    python脚本路径: <Link target="_blank" :href="pyFilePath">{{ pyFilePath }}</Link>
   </p>
 
 </template>

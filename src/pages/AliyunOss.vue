@@ -1,28 +1,30 @@
 <template>
 
 
-  <Row style="margin-top: 10px" :gutter="10">
+  <Row :gutter="10">
     <Col :span="12">
-      <h3>阿里云图床配置</h3>
-      <p>
-        <Input placeholder="请输入region" v-model.trim="region" />
-      </p>
-      <p>
-        <Input placeholder="请输入accessKeyId" v-model.trim="accessKeyId" />
-      </p>
-      <p>
-        <Input placeholder="请输入accessKeySecret" v-model.trim="accessKeySecret" />
-      </p>
-      <p>
-        <Input placeholder="请输入bucket" v-model.trim="bucket" />
-      </p>
+      <Card title="阿里云图床配置">
+        <p>
+          <Input placeholder="请输入region" v-model.trim="region" />
+        </p>
+        <p>
+          <Input placeholder="请输入accessKeyId" v-model.trim="accessKeyId" />
+        </p>
+        <p>
+          <Input placeholder="请输入accessKeySecret" v-model.trim="accessKeySecret" />
+        </p>
+        <p>
+          <Input placeholder="请输入bucket" v-model.trim="bucket" />
+        </p>
 
-      <Upload
-          :disabled="!region || !accessKeyId || !accessKeySecret || !bucket"
-          @change="onChange"
-          draggable
-          :show-file-list="false"
-          :auto-upload="false" />
+        <Upload
+            :disabled="!region || !accessKeyId || !accessKeySecret || !bucket"
+            @change="onChange"
+            draggable
+            :show-file-list="false"
+            :auto-upload="false" />
+
+      </Card>
 
     </Col>
 
@@ -48,10 +50,10 @@ const files = ref([]);
 
 const list = ref([])
 
-const region = ref(null)
-const accessKeyId = ref(null)
-const accessKeySecret = ref(null)
-const bucket = ref(null)
+const region = ref(localStorage.getItem("region"))
+const accessKeyId = ref(localStorage.getItem("accessKeyId"))
+const accessKeySecret = ref(localStorage.getItem("accessKeySecret"))
+const bucket = ref(localStorage.getItem("bucket"))
 
 const getCustomIcon = () => {
   return {
@@ -71,8 +73,12 @@ const initClient = () => {
   if (!region.value || !accessKeyId.value || !accessKeySecret.value || !bucket.value) {
     return false
   }
-  return new OSS({
+  localStorage.setItem("region", region.value)
+  localStorage.setItem("accessKeyId", accessKeyId.value)
+  localStorage.setItem("accessKeySecret", accessKeySecret.value)
+  localStorage.setItem("bucket", bucket.value)
 
+  return new OSS({
     region: region.value,
     accessKeyId: accessKeyId.value,
     accessKeySecret: accessKeySecret.value,

@@ -9,7 +9,7 @@
   </p>
 
   <p v-for="url in urls">
-    <a :key="url" target="_blank" :href="url">{{ url }}</a>
+    <Link :key="url" target="_blank" :href="url">{{ url }}</Link>
   </p>
 
 </template>

@@ -9,10 +9,10 @@
   </p>
 
   <p>
-    JSON路径: <a target="_blank" :href="jsonPath">{{ jsonPath }}</a>
+    JSON路径: <Link target="_blank" :href="jsonPath">{{ jsonPath }}</Link>
   </p>
   <p>
-    CSV路径: <a target="_blank" :href="outPath">{{ outPath }}</a>
+    CSV路径: <Link target="_blank" :href="outPath">{{ outPath }}</Link>
   </p>
 
 
