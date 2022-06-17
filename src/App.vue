@@ -19,7 +19,7 @@
             <IconCalendar></IconCalendar> [0-9]信息安全
           </template>
           <MenuItem key="Decode">编解码</MenuItem>
-          <MenuItem key="TxtCrypt">文本加解密</MenuItem>
+          <MenuItem key="TxtCrypt">加解密</MenuItem>
           <MenuItem key="FileCrypt">文件加解密</MenuItem>
           <MenuItem key="PassWord">密码管理器</MenuItem>
         </SubMenu>
@@ -52,13 +52,13 @@
           </template>
           <MenuItem key="MdEditor">Markdown编辑器 <IconCheckCircle /></MenuItem>
           <MenuItem key="JSONEditor">JSON编辑器 <IconCheckCircle /></MenuItem>
-          <MenuItem key="CodeEditor">Python代码编辑器 <IconCheckCircle /></MenuItem>
+          <MenuItem key="CodeEditor">Python代码执行器 <IconCheckCircle /></MenuItem>
         </SubMenu>
         <SubMenu key="Improve">
           <template #title>
             <IconCalendar></IconCalendar> [1-6]效率工具
           </template>
-          <MenuItem key="TodoList">待办清单(TodoList)</MenuItem>
+          <MenuItem key="TodoList">待办清单</MenuItem>
           <MenuItem key="PinMemo">备忘录</MenuItem>
 <!--          <MenuItem key="CropperIt">截图</MenuItem>-->
           <MenuItem key="QrCode">二维码</MenuItem>

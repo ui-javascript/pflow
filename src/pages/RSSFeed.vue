@@ -1,7 +1,10 @@
 <template>
-  <Space>
-    <Link target="_blank" href="http://www.jintiankansha.me/">今天看啥 <IconAlipayCircle /></Link>
-  </Space>
+  <Card>
+    <Space>
+      <Link target="_blank" href="http://www.jintiankansha.me/">今天看啥 <IconAlipayCircle /></Link>
+    </Space>
+  </Card>
+
 </template>
 
 <script setup>

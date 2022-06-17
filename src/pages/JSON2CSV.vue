@@ -1,7 +1,7 @@
 <template>
 
   <Alert>
-   编码为gbk
+   编码设为gbk, 支持中文
   </Alert>
 
   <p style="margin-top: 10px;">

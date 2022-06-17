@@ -2,39 +2,62 @@
 
   <Alert>
     <template #title>
-      API_KEY需要到 <Link target="_blank" href="https://www.remove.bg/">www.remove.bg</Link> 注册并免费生成
+      API_KEY需要到
+      <Link target="_blank" href="https://www.remove.bg/">www.remove.bg</Link>
+      注册并免费生成
     </template>
 
     <Image
+        style="margin-top: 10px;"
         :preview-props="{
     actionsLayout: ['rotateRight', 'zoomIn', 'zoomOut'],
   }"
         width="100%"
         src="https://luo0412.oss-cn-hangzhou.aliyuncs.com/1655396504404-JBAJRxJp3rC8.png"/>
 
-<!--    <TypographyTitle :heading="6">效果演示如下:</TypographyTitle>
-    <p>
-      <Image
-          :preview-props="{
-      actionsLayout: ['rotateRight', 'zoomIn', 'zoomOut'],
-    }"
-          width="300"
-          src="https://luo0412.oss-cn-hangzhou.aliyuncs.com/1655396765593-F7yYQKeHWici.png"/>
-    </p>-->
+    <!--    <TypographyTitle :heading="6">效果演示如下:</TypographyTitle>
+        <p>
+          <Image
+              :preview-props="{
+          actionsLayout: ['rotateRight', 'zoomIn', 'zoomOut'],
+        }"
+              width="300"
+              src="https://luo0412.oss-cn-hangzhou.aliyuncs.com/1655396765593-F7yYQKeHWici.png"/>
+        </p>-->
+
+
+    <Image
+        style="margin-top: 10px;"
+        :preview-props="{
+    actionsLayout: ['rotateRight', 'zoomIn', 'zoomOut'],
+  }"
+        width="300px"
+        src="https://luo0412.oss-cn-hangzhou.aliyuncs.com/1655396765593-F7yYQKeHWici.png"/>
+
   </Alert>
 
-  <Input style="margin-top: 10px;" v-model="apiKey" placeholder="请先输入API_KEY"/>
 
-  <p style="margin-top: 10px;">
-    <Button :disabled="!apiKey" @click="removeBg">选择图片, 抠除背景</Button>
-  </p>
 
-  <p>
-    图片路径: <Link target="_blank" :href="picPath">{{ picPath }}</Link>
-  </p>
-  <p>
-    处理后的图片路径: <Link target="_blank" :href="outPath">{{ outPath }}</Link>
-  </p>
+  <Card style="margin-top: 10px;">
+
+    <Space>
+      <Input style="width: 300px;" v-model="apiKey" placeholder="请先输入API_KEY"/>
+      <Button :disabled="!apiKey" @click="removeBg">选择图片, 抠除背景</Button>
+    </Space>
+
+    <p>
+      图片路径:
+      <Link target="_blank" :href="picPath">{{ picPath }}</Link>
+    </p>
+    <p>
+      处理后的图片路径:
+      <Link target="_blank" :href="outPath">{{ outPath }}</Link>
+    </p>
+
+  </Card>
+
+
+
 
 
 
