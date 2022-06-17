@@ -1,6 +1,6 @@
 <template>
 
-  <Card title="前端项目SSH部署">
+  <Card title="前端SSH部署">
     <Row :gutter="10">
       <Col flex="auto">
         <Input placeholder="请输入工程目录(package.json)" v-model.trim="projectPath" allow-clear />
@@ -45,7 +45,7 @@ import {Message} from "@arco-design/web-vue";
 
 const loading = ref(false)
 
-const projectPath = ref(localStorage.getItem("projectPath") || "E:\\workspace-electron\\qflow")
+const projectPath = ref(localStorage.getItem("projectPath") || "E:\\workspace-electron\\pflow")
 const buildCmd = ref(localStorage.getItem("buildCmd") || "vite build")
 const distPath = ref(localStorage.getItem("distPath") || "dist")
 const remotePath = ref(localStorage.getItem("remotePath") || "/opt/temp")
@@ -73,7 +73,7 @@ const deploy = async () => {
   localStorage.setItem("hostname", hostname.value)
   localStorage.setItem("username", username.value)
   localStorage.setItem("password", password.value)
-  Message.success("前端项目部署成功")
+  Message.success("部署命令已执行完毕")
 }
 
 const openFolder = async () => {

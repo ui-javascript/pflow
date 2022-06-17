@@ -1,14 +1,14 @@
 {
-  "name": "qflow",
+  "name": "pflow",
   "private": true,
   "version": "1.0.0",
-  "description": "qflow(常用Python脚本集)",
+  "description": "pflow(常用Python脚本集, 但没啥实际用途...)",
   "author": "luo0412",
   "scripts": {
     "init": "npm install && run-script-os",
     "init:macos": "python3 pyapp/spec/getSpec.py && python3 -m venv pyenv && ./pyenv/bin/pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r ./pyapp/requirements.txt",
     "init:windows": "python pyapp\\spec\\getSpec.py && python -m venv pyenv\\pyenv && .\\pyenv\\pyenv\\Scripts\\pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r .\\pyapp\\requirements.txt",
-    "init:cef": "npm install && python pyapp\\spec\\getSpec.py && python -m venv pyenv\\pyenvCEF && .\\pyenv\\pyenvCEF\\Scripts\\pip install -i https://pypi.tuna.tsinghua.edu.cn/simple cefpython3 && shx cp .\\pyapp\\hook-cefpython3.py .\\pyenv\\pyenvCEF\\Lib\\site-packages\\PyInstaller\\hooks",
+    "init:cef": "npm install && python pyapp\\spec\\getSpec.py && python -m venv pyenv\\pyenvCEF && .\\pyenv\\pyenvCEF\\Scripts\\pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r .\\pyapp\\requirements.txt && .\\pyenv\\pyenvCEF\\Scripts\\pip install -i https://pypi.tuna.tsinghua.edu.cn/simple cefpython3 && shx cp .\\pyapp\\hook-cefpython3.py .\\pyenv\\pyenvCEF\\Lib\\site-packages\\PyInstaller\\hooks",
     "start": "run-script-os",
     "start:macos": "./pyenv/bin/python -X dev ./pyapp/main.py",
     "start:windows": ".\\pyenv\\pyenv\\Scripts\\python -X dev .\\pyapp\\main.py",

@@ -8,6 +8,7 @@
 
 ```bash
 npm run init
+# npm run init:cef # 或者兼容模式初始化
 
 npm run dev # 启动前端
 
@@ -26,11 +27,11 @@ npm run build:cef # 或者兼容模式
 
 # 常见问题 @faq
 
-- ReferenceError: queueMicrotask is not defined @tofix
+- cef兼容模式下打包,monaco-editor报错 -- ReferenceError: queueMicrotask is not defined @tofix
   - https://apidocs.cn/blog/front/nodejs/queueMicrotaskIsNotDefined.html
 
 ```
-cef兼容模式下 monaco-editor报错
+等待处理
 ```
 
 ![](https://luo0412.oss-cn-hangzhou.aliyuncs.com/1655412225995-MZ4iFANKsaNb.png)

@@ -77,6 +77,9 @@
           <SubMenu key="Batch" title="批量操作">
             <MenuItem key="RenameBatch">批量重命名</MenuItem>
           </SubMenu>
+          <SubMenu key="OfficeExcel" title="Excel">
+            <MenuItem key="ExcelMerge">Excel合并</MenuItem>
+          </SubMenu>
           <SubMenu key="Pic" title="图片">
             <MenuItem key="PicMin">图片压缩 <IconCheckCircle /></MenuItem>
             <MenuItem key="RemoveBg">抠除背景 <IconCheckCircle /></MenuItem>
@@ -98,16 +101,16 @@
           <template #title>
             <IconCalendar></IconCalendar> [1-7]格式转换
           </template>
-          <SubMenu key="JSON" title="JSON">
+          <SubMenu key="ConvertJSON" title="JSON">
             <MenuItem key="JSON2CSV">JSON转CSV <IconCheckCircle /></MenuItem>
           </SubMenu>
-          <SubMenu key="Excel" title="Excel">
+          <SubMenu key="ConvertExcel" title="Excel">
             <MenuItem key="Excel2JSON">Excel转JSON</MenuItem>
           </SubMenu>
-          <SubMenu key="TXT" title="TXT">
+          <SubMenu key="ConvertTXT" title="TXT">
             <MenuItem key="Txt2Word">TXT转Word</MenuItem>
           </SubMenu>
-          <SubMenu key="PDF" title="PDF">
+          <SubMenu key="ConvertPDF" title="PDF">
             <MenuItem key="Pdf2Pic">PDF转图片</MenuItem>
             <MenuItem key="Pdf2Word">PDF转Word</MenuItem>
           </SubMenu>
@@ -160,7 +163,7 @@
           <template #title>
             <IconCalendar></IconCalendar> [5-5]自动化脚本
           </template>
-          <MenuItem key="DeployFe">前端项目SSH部署 <IconCheckCircle/></MenuItem>
+          <MenuItem key="DeployFe">前端SSH部署 <IconCheckCircle/></MenuItem>
           <SubMenu key="CornTask" title="定时任务">
             <MenuItem key="DBBackup">数据库定时备份</MenuItem>
           </SubMenu>
