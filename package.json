@@ -1,8 +1,8 @@
 {
-  "name": "pflow",
+  "name": "pyflow",
   "private": true,
   "version": "1.0.0",
-  "description": "pflow(常用Python脚本集, 但没啥实际用途...)",
+  "description": "pyflow(常用Python脚本集, 但没啥实际用途...)",
   "author": "luo0412",
   "scripts": {
     "init": "npm install && run-script-os",

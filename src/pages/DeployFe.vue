@@ -45,7 +45,7 @@ import {Message} from "@arco-design/web-vue";
 
 const loading = ref(false)
 
-const projectPath = ref(localStorage.getItem("projectPath") || "E:\\workspace-electron\\pflow")
+const projectPath = ref(localStorage.getItem("projectPath") || "E:\\workspace-electron\\pyflow")
 const buildCmd = ref(localStorage.getItem("buildCmd") || "vite build")
 const distPath = ref(localStorage.getItem("distPath") || "dist")
 const remotePath = ref(localStorage.getItem("remotePath") || "/opt/temp")
