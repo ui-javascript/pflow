@@ -30,3 +30,5 @@ pyapp/spec
 /buildCEF
 
 /pyapp/test/
+
+package-lock.json

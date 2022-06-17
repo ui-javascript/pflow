@@ -18,6 +18,7 @@ from utils.pdf_utils import gen_pdf_outlines
 from utils.remove_bg_utils import remove_bg
 from utils.convert_json_to_csv import convert_json_to_csv
 from utils.extract_urls_utils import extract_url
+from utils.deploy_fe_project_utils import deploy_fe_project
 
 class API:
 
@@ -95,4 +96,7 @@ class API:
 
     def extractUrl(self, url):
         return extract_url(url)
+
+    def deployFe(self, project_path, remote_path, hostname, username, password, buildCmd, distPath):
+        return deploy_fe_project(project_path, remote_path, hostname, username, password, buildCmd, distPath)
 

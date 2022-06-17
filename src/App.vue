@@ -150,10 +150,10 @@
             <IconCalendar></IconCalendar> [5-4]数据分析
           </template>
           <SubMenu key="Numpy" title="Numpy脚本">
-            <MenuItem key="NumpyModel">Numpy模型</MenuItem>
+            <MenuItem key="NumpyModel">Numpy简单示例</MenuItem>
           </SubMenu>
           <SubMenu key="Scipy" title="Scipy脚本">
-            <MenuItem key="ScipyModel">Scipy模型</MenuItem>
+            <MenuItem key="ScipyModel">Scipy简单示例</MenuItem>
           </SubMenu>
         </SubMenu>
         <SubMenu key="Devops">
@@ -161,7 +161,7 @@
             <IconCalendar></IconCalendar> [5-5]自动化脚本
           </template>
           <SubMenu key="Deploy" title="项目部署">
-            <MenuItem key="FeDeploy">前端项目部署</MenuItem>
+            <MenuItem key="DeployFe">前端项目SSH部署 <IconCheckCircle/></MenuItem>
           </SubMenu>
           <SubMenu key="CornTask" title="定时任务">
             <MenuItem key="DBBackup">数据库定时备份</MenuItem>
