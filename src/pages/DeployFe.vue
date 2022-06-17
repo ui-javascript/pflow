@@ -11,7 +11,7 @@
     </Row>
 
     <p>
-      <Input placeholder="请输入打包命令" v-model.trim="buildCmd"/>
+      <Input placeholder="请输入打包命令" v-model.trim="buildCmd" allow-clear/>
     </p>
 
     <p>
@@ -29,10 +29,10 @@
     </p>
 
     <p>
-      <Input placeholder="请输入远程服务器密码" v-model.trim="password"/>
+      <InputPassword placeholder="请输入远程服务器密码" v-model.trim="password" allow-clear/>
     </p>
 
-    <Button :disabled="!projectPath || !remotePath || !hostname || !username || !password || !buildCmd || !distPath" @click="deploy">部署</Button>
+    <Button :loading="loading" :disabled="!projectPath || !remotePath || !hostname || !username || !password || !buildCmd || !distPath" @click="deploy">部署</Button>
 
   </Card>
 
@@ -43,6 +43,8 @@
 import {ref} from "vue"
 import {Message} from "@arco-design/web-vue";
 
+const loading = ref(false)
+
 const projectPath = ref(localStorage.getItem("projectPath") || "E:\\workspace-electron\\qflow")
 const buildCmd = ref(localStorage.getItem("buildCmd") || "vite build")
 const distPath = ref(localStorage.getItem("distPath") || "dist")
@@ -52,10 +54,17 @@ const username = ref(localStorage.getItem("username") || "root")
 const password = ref(localStorage.getItem("password") || "password")
 
 const deploy = async () => {
-  const res = await window.pywebview.api.deployFe(projectPath.value, remotePath.value, hostname.value, username.value, password.value, buildCmd.value, distPath.value)
-  if (!res) {
-    return
+  loading.value = true
+  try {
+    const res = await window.pywebview.api.deployFe(projectPath.value, remotePath.value, hostname.value, username.value, password.value, buildCmd.value, distPath.value)
+    if (!res) {
+      return
+    }
+  } catch (err) {
+    // loading.value = false
   }
+
+  loading.value = false
 
   localStorage.setItem("projectPath", projectPath.value)
   localStorage.setItem("buildCmd", buildCmd.value)

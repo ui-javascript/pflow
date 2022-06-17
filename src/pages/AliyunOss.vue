@@ -8,10 +8,10 @@
           <Input placeholder="请输入region" v-model.trim="region" />
         </p>
         <p>
-          <Input placeholder="请输入accessKeyId" v-model.trim="accessKeyId" />
+          <InputPassword placeholder="请输入accessKeyId" v-model.trim="accessKeyId" />
         </p>
         <p>
-          <Input placeholder="请输入accessKeySecret" v-model.trim="accessKeySecret" />
+          <InputPassword placeholder="请输入accessKeySecret" v-model.trim="accessKeySecret" />
         </p>
         <p>
           <Input placeholder="请输入bucket" v-model.trim="bucket" />

@@ -160,9 +160,7 @@
           <template #title>
             <IconCalendar></IconCalendar> [5-5]自动化脚本
           </template>
-          <SubMenu key="Deploy" title="项目部署">
-            <MenuItem key="DeployFe">前端项目SSH部署 <IconCheckCircle/></MenuItem>
-          </SubMenu>
+          <MenuItem key="DeployFe">前端项目SSH部署 <IconCheckCircle/></MenuItem>
           <SubMenu key="CornTask" title="定时任务">
             <MenuItem key="DBBackup">数据库定时备份</MenuItem>
           </SubMenu>
