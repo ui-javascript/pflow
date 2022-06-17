@@ -1,0 +1,11 @@
+<template>
+  <Space>
+    <Link target="_blank" href="http://www.jintiankansha.me/">今天看啥 <IconAlipayCircle /></Link>
+  </Space>
+</template>
+
+<script setup>
+import {IconAlipayCircle} from "@arco-design/web-vue/es/icon"
+</script>
+
+

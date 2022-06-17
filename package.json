@@ -27,6 +27,8 @@
     "build:folder:cef": "shx rm -rf buildCEF && vite build && .\\pyenv\\pyenvCEF\\Scripts\\pyinstaller -w --clean .\\pyapp\\spec\\windows-folder-cef.spec && shx mv .\\build\\windows-folder-cef .\\buildCEF\\windows-folder-cef"
   },
   "dependencies": {
+    "ali-oss": "^6.17.1",
+    "moment": "^2.29.3",
     "monaco-editor": "^0.33.0",
     "unplugin-vue-components": "^0.19.6",
     "vditor": "^3.8.15",

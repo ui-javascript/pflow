@@ -1,8 +1,6 @@
 <template>
 
-  <p>
-    <Input v-model="apiKey" placeholder="请先输入API_KEY"/>
-  </p>
+  <Input v-model="apiKey" placeholder="请先输入API_KEY"/>
 
   <p style="margin-top: 10px;">
     <Button :disabled="!apiKey" @click="removeBg">选择图片, 抠除背景</Button>

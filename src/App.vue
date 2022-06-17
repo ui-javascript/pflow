@@ -18,9 +18,9 @@
           <template #title>
             <IconCalendar></IconCalendar> [0-9]信息安全
           </template>
-          <MenuItem key="Crypto">加解密</MenuItem>
           <MenuItem key="Decode">编解码</MenuItem>
-          <MenuItem key="FileCrypt">文件加密</MenuItem>
+          <MenuItem key="TxtCrypt">文本加解密</MenuItem>
+          <MenuItem key="FileCrypt">文件加解密</MenuItem>
           <MenuItem key="PassWord">密码管理器</MenuItem>
         </SubMenu>
 
@@ -35,15 +35,15 @@
           <template #title>
             <IconCalendar></IconCalendar> [1-3]新闻资讯
           </template>
-          <MenuItem key="TopHub">今日热榜</MenuItem>
-          <MenuItem key="RSSFeed">RSS订阅</MenuItem>
+          <MenuItem key="TopHub">今日热榜 <IconCheckCircle/></MenuItem>
+          <MenuItem key="RSSFeed">RSS订阅 <IconCheckCircle/></MenuItem>
         </SubMenu>
         <SubMenu key="Design">
           <template #title>
             <IconCalendar></IconCalendar> [1-5]设计素材
           </template>
+          <MenuItem key="IconFont">IconFont <IconCheckCircle /></MenuItem>
           <MenuItem key="WallPaper">壁纸</MenuItem>
-          <MenuItem key="IconFont">IconFont</MenuItem>
           <MenuItem key="EmojiFight">表情包</MenuItem>
         </SubMenu>
         <SubMenu key="Editor">
@@ -64,7 +64,6 @@
           <MenuItem key="QrCode">二维码</MenuItem>
 <!--          <MenuItem key="ColorPicker">颜色拾取</MenuItem>-->
           <MenuItem key="ShortUrl">短地址</MenuItem>
-          <MenuItem key="ExtractUrl">网址提取 <IconCheckCircle /></MenuItem>
           <MenuItem key="Coin">汇率换算</MenuItem>
           <MenuItem key="RandomAvatar">随机头像</MenuItem>
           <MenuItem key="CountStat">字数统计</MenuItem>
@@ -79,7 +78,7 @@
             <MenuItem key="RenameBatch">批量重命名</MenuItem>
           </SubMenu>
           <SubMenu key="Pic" title="图片">
-            <MenuItem key="PicMin">图片压缩</MenuItem>
+            <MenuItem key="PicMin">图片压缩 <IconCheckCircle /></MenuItem>
             <MenuItem key="RemoveBg">抠除背景 <IconCheckCircle /></MenuItem>
             <MenuItem key="PicStitch">图片拼接</MenuItem>
             <MenuItem key="PicWatermark">图片加水印</MenuItem>
@@ -113,11 +112,17 @@
             <MenuItem key="Pdf2Word">PDF转Word</MenuItem>
           </SubMenu>
         </SubMenu>
+        <SubMenu key="Devops">
+          <template #title>
+            <IconCalendar></IconCalendar> [3-5]开发助手
+          </template>
+          <MenuItem key="Postman">简易Postman</MenuItem>
+        </SubMenu>
         <SubMenu key="Cloud">
           <template #title>
             <IconCalendar></IconCalendar> [3-6]云服务
           </template>
-          <MenuItem key="OssUpload">OSS图床</MenuItem>
+          <MenuItem key="AliyunOss">阿里云OSS图床 <IconCheckCircle/></MenuItem>
         </SubMenu>
         <MenuItem key="MathExpr">
           <IconCalendar></IconCalendar>
@@ -128,6 +133,7 @@
             <IconCalendar></IconCalendar> [5-4]网络爬虫
           </template>
           <SubMenu key="ContentExtract" title="内容提取">
+            <MenuItem key="ExtractUrl">网址提取 <IconCheckCircle /></MenuItem>
             <MenuItem key="Newspaper">新闻摘要提取</MenuItem>
           </SubMenu>
           <SubMenu key="TxtWebsite" title="文本网站">
@@ -139,19 +145,34 @@
             <MenuItem key="BiliBili">哔哩哔哩</MenuItem>
           </SubMenu>
         </SubMenu>
+        <SubMenu key="Analysis">
+          <template #title>
+            <IconCalendar></IconCalendar> [5-4]数据分析
+          </template>
+          <SubMenu key="Numpy" title="Numpy脚本">
+            <MenuItem key="NumpyModel">Numpy模型</MenuItem>
+          </SubMenu>
+          <SubMenu key="Scipy" title="Scipy脚本">
+            <MenuItem key="ScipyModel">Scipy模型</MenuItem>
+          </SubMenu>
+        </SubMenu>
         <SubMenu key="Devops">
           <template #title>
             <IconCalendar></IconCalendar> [5-5]自动化脚本
           </template>
-          <MenuItem key="Deploy">前端项目部署</MenuItem>
-          <MenuItem key="Postman">简易Postman</MenuItem>
+          <SubMenu key="Deploy" title="项目部署">
+            <MenuItem key="FeDeploy">前端项目部署</MenuItem>
+          </SubMenu>
+          <SubMenu key="CornTask" title="定时任务">
+            <MenuItem key="DBBackup">数据库定时备份</MenuItem>
+          </SubMenu>
         </SubMenu>
         <SubMenu key="AI">
           <template #title>
             <IconCalendar></IconCalendar> [5-6]智能助手
           </template>
-          <MenuItem key="OCR">OCR</MenuItem>
-          <MenuItem key="Jieba">分词器</MenuItem>
+          <MenuItem key="OCR">图片OCR</MenuItem>
+          <MenuItem key="Jieba">结巴分词器</MenuItem>
         </SubMenu>
         <SubMenu key="MiniGame">
           <template #title>
