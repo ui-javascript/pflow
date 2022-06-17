@@ -55,13 +55,18 @@ const password = ref(localStorage.getItem("password") || "password")
 
 const deploy = async () => {
   loading.value = true
+
   try {
     const res = await window.pywebview.api.deployFe(projectPath.value, remotePath.value, hostname.value, username.value, password.value, buildCmd.value, distPath.value)
     if (!res) {
+      loading.value = false
+      Message.error("部署命令执行出错, 请检查配置")
       return
     }
   } catch (err) {
-    // loading.value = false
+    loading.value = false
+    Message.error("部署命令执行出错, 请检查配置")
+    return
   }
 
   loading.value = false
@@ -73,7 +78,9 @@ const deploy = async () => {
   localStorage.setItem("hostname", hostname.value)
   localStorage.setItem("username", username.value)
   localStorage.setItem("password", password.value)
-  Message.success("部署命令已执行完毕")
+
+  // @todo 暂不能保证是部署成功的提示
+  Message.success("部署命令执行完毕")
 }
 
 const openFolder = async () => {

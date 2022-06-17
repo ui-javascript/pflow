@@ -8,7 +8,10 @@
 
 ```bash
 npm run init
+# pip install paramiko --target=./pyenv/pyenv/Lib/site-packages # paramiko安装失败时可单独安装
+
 # npm run init:cef # 或者兼容模式初始化
+# pip install paramiko --target=./pyenv/pyenvCEF/Lib/site-packages # paramiko安装失败时可单独安装
 
 npm run dev # 启动前端
 
